@@ -69,7 +69,7 @@ func (p *Proxy) GetListedServer(exception []string) []string {
 	return a
 }
 
-func (p *Proxy) registerServer(server string) {
+func (p *Proxy) addNewServer(server string) {
 	p.servers[server] = struct{}{}
 }
 
@@ -79,6 +79,6 @@ func (p *Proxy) initServerRoutes() {
 
 	api.Use(middleware.ApiKeyMiddleware(p.apiKey))
 
-	api.Get("/", p.serverStatus)
+	api.Get("/", p.proxyStatus)
 	api.Get("/register", p.registerServerHandler)
 }

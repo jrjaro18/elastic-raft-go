@@ -15,6 +15,6 @@ func ApiKeyMiddleware(requiredKey string) fiber.Handler {
 				"error": "Invalid API key",
 			})
 		}
-		return c.Next() // Proceed to the next handler
+		return c.Next()
 	}
 }
